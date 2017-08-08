@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Request;
 
-class ProductRequest extends FormRequest
+class DetailRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -17,14 +16,6 @@ class ProductRequest extends FormRequest
         return true;
     }
 
-    public function messages()
-    {
-        return [
-            'titulo' => 'Se requiere',
-            'descripcion.required' => 'Se requiere :attribute',
-        ];
-    }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -33,9 +24,7 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'titulo' => 'required|string',
-            'descripcion' => 'nullable|string',
-            'product_type_id' => 'nullable|exists:product_types,id',
+            'product_id' => 'required|integer|exists:products,id',
             'quantity' => 'required|integer|min:1'
         ];
     }

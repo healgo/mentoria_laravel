@@ -64,3 +64,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/products','ProductsController');
 
 //Route::put('products/{id}/{param2}');
+
+
+Route::get('details/borrar/{id}','DetailsController@borrar')->name('details.borrar');
+Route::resource('/details','DetailsController');
+
+
